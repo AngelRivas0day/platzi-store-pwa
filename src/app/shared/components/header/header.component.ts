@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('window:beforeinstallprompt', ['$event'])
   onBeforeInstallPrompt(event: Event) {
-    console.log(event);
+    console.log('Install prompt: ',event);
     event.preventDefault();
     this.installEvent = event;
   }

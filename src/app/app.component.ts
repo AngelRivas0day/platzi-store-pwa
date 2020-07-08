@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, Inject } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
@@ -19,7 +19,8 @@ export class AppComponent implements OnInit {
   constructor(
     private swUpdate: SwUpdate,
     private messaging: AngularFireMessaging,
-    private database: AngularFirestore
+    private database: AngularFirestore,
+    // @Inject(AppService) service: AppService
   ) {
     this.tokensCollections = this.database.collection<Token>('tokens');
   }
@@ -50,6 +51,8 @@ export class AppComponent implements OnInit {
     this.messaging.messages
     .subscribe(message => {
       console.log(message);
+      // here you can do whatever you want with the message
+      // like poping up a notification or something
     });
   }
 }

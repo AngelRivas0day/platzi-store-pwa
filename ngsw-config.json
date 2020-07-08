@@ -29,10 +29,12 @@
   "dataGroups": [
     {
       "name": "api",
-      "urls": ["https://platzi-store.herokuapp.com/**"],
+      "urls": [
+        "https://platzi-store.herokuapp.com/**"
+      ],
       "cacheConfig": {
         "maxSize": 3,
-        "maxAge": "5m",
+        "maxAge": "2d",
         "strategy": "freshness",
         "timeout": "2s"
       }
